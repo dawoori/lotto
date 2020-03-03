@@ -1,41 +1,55 @@
 const btn = document.getElementById("btn");
 let tmp = 1, numbers;
 
+var startNum = 1;
+var endNum = 45;
+
+function input() {
+  var startInput = document.getElementById("start").value;
+  var endInput = document.getElementById("end").value;
+  startNum = parseInt(startInput);
+  endNum = parseInt(endInput);
+}
+
 function getindex(c) {
-    let d = 0;
-    for (d; c = c.previousElementSibling; d++);
-    return d
+  let d = 0;
+  for (d; c = c.previousElementSibling; d++);
+  return d
 }
 
 function decryptEffect(elem, time) {
-    const effect = setInterval(function() {
-        elem.innerText = Math.floor(Math.random()*44 + 1)
-    }, 10);
-    setTimeout(function() {
-        const random = Math.floor(Math.random() * numbers.length);
-        clearInterval(effect),
-        elem.classList.add("done"),
-        elem.innerText = numbers[random],
-        numbers.splice(random, 1)
-    },  time * 1000 + 1000)
+  const effect = setInterval(function () {
+    elem.innerText = Math.floor(Math.random() * endNum)
+  }, 10);
+  setTimeout(function () {
+    const random = Math.floor(Math.random() * numbers.length);
+    clearInterval(effect),
+      elem.classList.add("done"),
+      elem.innerText = numbers[random],
+      numbers.splice(random, 1)
+  }, time * 2000 + 2000)
 }
 
 function lottery() {
-    Array.from(document.querySelectorAll(".ball")).forEach(a => {
-        a.classList.remove("done"),
-        decryptEffect(a, getindex(a))
-    })
+  Array.from(document.querySelectorAll(".ball")).forEach(a => {
+    a.classList.remove("done"),
+      decryptEffect(a, getindex(a))
+  })
 }
 
-btn.addEventListener("click", function() {
-    tmp === 1 && (
-        numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],
-        tmp = 0,
-        btn.classList.add("hide"),
-        lottery(),
-        setTimeout(function() {
-            tmp = 1,
-            btn.classList.remove("hide")
-        }, 1000)
-    )
-})
+function clicker() {
+  numbers = [];
+  for (var i = startNum; i < endNum + 1; i++) numbers.push(i);
+  
+  tmp === 1 && (
+    tmp = 0,
+    btn.classList.add("hide"),
+    lottery(),
+    setTimeout(function () {
+      tmp = 1,
+        btn.classList.remove("hide")
+    }, 2000)
+  )
+}
+
+btn.addEventListener("click", clicker)
