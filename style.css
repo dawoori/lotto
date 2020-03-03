@@ -9,6 +9,7 @@ html {
 }
 
 body, div, button, h1 {
+    align-items: center;
     font: inherit;
     padding: 0;
     margin: 0;
@@ -38,11 +39,11 @@ body, div, button, h1 {
 }
 
 #numbers .ball {
-    width: 80px;
-    height: 80px;
+    width: 220px;
+    height: 220px;
     margin-right: 10px;
-    line-height: 80px;
-    font-size: 48px;
+    line-height: 220px;
+    font-size: 88px;
     border-radius: 50%;
     text-align: center;
 }
