@@ -1,5 +1,6 @@
 const btn = document.getElementById("btn");
-let tmp = 1, numbers;
+let tmp = 1;
+let numbers = [];
 
 var startNum = 1;
 var endNum = 45;
@@ -27,7 +28,7 @@ function decryptEffect(elem, time) {
       elem.classList.add("done"),
       elem.innerText = numbers[random],
       numbers.splice(random, 1)
-  }, time * 2000 + 2000)
+  }, time * 1500 + 1500)
 }
 
 function lottery() {
@@ -38,9 +39,10 @@ function lottery() {
 }
 
 function clicker() {
-  numbers = [];
-  for (var i = startNum; i < endNum + 1; i++) numbers.push(i);
-  
+  if (numbers.length < 1) {
+    clearb();
+  }
+
   tmp === 1 && (
     tmp = 0,
     btn.classList.add("hide"),
@@ -48,8 +50,13 @@ function clicker() {
     setTimeout(function () {
       tmp = 1,
         btn.classList.remove("hide")
-    }, 2000)
+    }, 1500)
   )
+}
+
+function clearb() {
+  numbers = [];
+  for (var i = startNum; i < endNum + 1; i++) numbers.push(i);
 }
 
 btn.addEventListener("click", clicker)
