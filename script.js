@@ -21,7 +21,7 @@ function getindex(c) {
 function decryptEffect(elem, time) {
   const effect = setInterval(function () {
     elem.innerText = Math.floor(Math.random() * endNum)
-  }, 10);
+  }, 80);
   setTimeout(function () {
     const random = Math.floor(Math.random() * numbers.length);
     clearInterval(effect),
@@ -55,6 +55,7 @@ function clicker() {
 }
 
 function clearb() {
+  input();
   numbers = [];
   for (var i = startNum; i < endNum + 1; i++) numbers.push(i);
 }
