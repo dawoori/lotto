@@ -21,7 +21,7 @@ function getindex(c) {
 function decryptEffect(elem, time) {
   const effect = setInterval(function () {
     elem.innerText = Math.floor(Math.random() * endNum)
-  }, 80);
+  }, 20);
   setTimeout(function () {
     const random = Math.floor(Math.random() * numbers.length);
     clearInterval(effect),
