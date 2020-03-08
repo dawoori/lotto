@@ -52,7 +52,7 @@ function clicker() {
     setTimeout(function () {
       tmp = 1,
         btn.classList.remove("hide")
-    }, 1500)
+    }, 3800)
   )
 }
 
