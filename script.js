@@ -30,7 +30,7 @@ function decryptEffect(elem, time) {
       elem.classList.add("done"),
       elem.innerText = numbers[random],
       numbers.splice(random, 1)
-  }, time * 1700 + 1700)
+  }, time * 3800 + 3800)
 }
 
 function lottery() {
