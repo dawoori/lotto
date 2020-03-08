@@ -1,4 +1,6 @@
 const btn = document.getElementById("btn");
+const audio = document.getElementById('audio_p'); 
+
 let tmp = 1;
 let numbers = [];
 
@@ -28,7 +30,7 @@ function decryptEffect(elem, time) {
       elem.classList.add("done"),
       elem.innerText = numbers[random],
       numbers.splice(random, 1)
-  }, time * 1500 + 1500)
+  }, time * 1700 + 1700)
 }
 
 function lottery() {
@@ -42,7 +44,7 @@ function clicker() {
   if (numbers.length < 1) {
     clearb();
   }
-
+  audio.play()
   tmp === 1 && (
     tmp = 0,
     btn.classList.add("hide"),
